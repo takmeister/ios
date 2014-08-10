@@ -8,11 +8,9 @@
 
 #import "Player.h"
 #import "Bullet.h"
+#import "MyScene.h"
 
 @implementation Player
-
-static const uint32_t player = 0x1 << 0;
-static const uint32_t playerbullet = 0x1 << 1;
 
 -(Player*)init:(CGPoint)pos withSize:(CGSize)initsize withHitmarkersize:(CGSize)markersize withSpeed:(float)initspeed withTexture:(int)ID withType:(int)thetype{
     if (thetype == 0) {
