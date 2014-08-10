@@ -22,7 +22,7 @@
     self.thespeed = initspeed;
     self.zPosition = 2;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:markersize];
-    self.physicsBody.allowsRotation = FALSE;
+    self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
     self.physicsBody.dynamic = false;
     self.physicsBody.categoryBitMask = player;
