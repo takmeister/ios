@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25102673191576F900B2946F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25102671191576F900B2946F /* spark.png */; };
+		251026811915866600B2946F /* bernier.sks in Resources */ = {isa = PBXBuildFile; fileRef = 251026801915866600B2946F /* bernier.sks */; };
 		25B6EC5819037BA600DA9186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5719037BA600DA9186 /* Foundation.framework */; };
 		25B6EC5A19037BA600DA9186 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5919037BA600DA9186 /* CoreGraphics.framework */; };
 		25B6EC5C19037BA600DA9186 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5B19037BA600DA9186 /* UIKit.framework */; };
@@ -17,13 +19,16 @@
 		25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC6B19037BA700DA9186 /* Main.storyboard */; };
 		25B6EC7019037BA700DA9186 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC6F19037BA700DA9186 /* ViewController.m */; };
 		25B6EC7319037BA700DA9186 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC7219037BA700DA9186 /* MyScene.m */; };
-		25B6EC7519037BA700DA9186 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC7419037BA700DA9186 /* Spaceship.png */; };
 		25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC7619037BA700DA9186 /* Images.xcassets */; };
 		25B6EC7E19037BA700DA9186 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC7D19037BA700DA9186 /* XCTest.framework */; };
 		25B6EC7F19037BA700DA9186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5719037BA600DA9186 /* Foundation.framework */; };
 		25B6EC8019037BA700DA9186 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5B19037BA600DA9186 /* UIKit.framework */; };
 		25B6EC8819037BA700DA9186 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC8619037BA700DA9186 /* InfoPlist.strings */; };
 		25B6EC8A19037BA700DA9186 /* shmupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC8919037BA700DA9186 /* shmupTests.m */; };
+		25B6EC9519037C3300DA9186 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC9419037C3300DA9186 /* Player.m */; };
+		25B6EC9819037E0500DA9186 /* Movearea.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC9719037E0500DA9186 /* Movearea.m */; };
+		25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC9D1904E58400DA9186 /* Bullet.m */; };
+		25B6ECA019071E3900DA9186 /* robot0.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC9F19071E3900DA9186 /* robot0.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25102671191576F900B2946F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		251026801915866600B2946F /* bernier.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = bernier.sks; path = ../bernier.sks; sourceTree = "<group>"; };
 		25B6EC5419037BA500DA9186 /* shmup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shmup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B6EC5719037BA600DA9186 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25B6EC5919037BA600DA9186 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,13 +60,19 @@
 		25B6EC6F19037BA700DA9186 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		25B6EC7119037BA700DA9186 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		25B6EC7219037BA700DA9186 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		25B6EC7419037BA700DA9186 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		25B6EC7619037BA700DA9186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25B6EC7C19037BA700DA9186 /* shmupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shmupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B6EC7D19037BA700DA9186 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		25B6EC8519037BA700DA9186 /* shmupTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "shmupTests-Info.plist"; sourceTree = "<group>"; };
 		25B6EC8719037BA700DA9186 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25B6EC8919037BA700DA9186 /* shmupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shmupTests.m; sourceTree = "<group>"; };
+		25B6EC9319037C3300DA9186 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		25B6EC9419037C3300DA9186 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		25B6EC9619037E0500DA9186 /* Movearea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movearea.h; sourceTree = "<group>"; };
+		25B6EC9719037E0500DA9186 /* Movearea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movearea.m; sourceTree = "<group>"; };
+		25B6EC9C1904E58400DA9186 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		25B6EC9D1904E58400DA9186 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		25B6EC9F19071E3900DA9186 /* robot0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot0.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +141,15 @@
 				25B6EC6F19037BA700DA9186 /* ViewController.m */,
 				25B6EC7119037BA700DA9186 /* MyScene.h */,
 				25B6EC7219037BA700DA9186 /* MyScene.m */,
-				25B6EC7419037BA700DA9186 /* Spaceship.png */,
+				25B6EC9619037E0500DA9186 /* Movearea.h */,
+				25B6EC9719037E0500DA9186 /* Movearea.m */,
+				25B6EC9319037C3300DA9186 /* Player.h */,
+				25B6EC9419037C3300DA9186 /* Player.m */,
+				25102671191576F900B2946F /* spark.png */,
+				25B6EC9C1904E58400DA9186 /* Bullet.h */,
+				25B6EC9D1904E58400DA9186 /* Bullet.m */,
+				25B6EC9F19071E3900DA9186 /* robot0.png */,
+				251026801915866600B2946F /* bernier.sks */,
 				25B6EC7619037BA700DA9186 /* Images.xcassets */,
 				25B6EC6019037BA600DA9186 /* Supporting Files */,
 			);
@@ -241,9 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B6EC6419037BA600DA9186 /* InfoPlist.strings in Resources */,
+				25102673191576F900B2946F /* spark.png in Resources */,
 				25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */,
-				25B6EC7519037BA700DA9186 /* Spaceship.png in Resources */,
+				251026811915866600B2946F /* bernier.sks in Resources */,
 				25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */,
+				25B6ECA019071E3900DA9186 /* robot0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */,
 				25B6EC7319037BA700DA9186 /* MyScene.m in Sources */,
 				25B6EC7019037BA700DA9186 /* ViewController.m in Sources */,
 				25B6EC6A19037BA600DA9186 /* AppDelegate.m in Sources */,
+				25B6EC9819037E0500DA9186 /* Movearea.m in Sources */,
 				25B6EC6619037BA600DA9186 /* main.m in Sources */,
+				25B6EC9519037C3300DA9186 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,9 +416,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shmup/shmup-Prefix.pch";
 				INFOPLIST_FILE = "shmup/shmup-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -404,9 +432,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shmup/shmup-Prefix.pch";
 				INFOPLIST_FILE = "shmup/shmup-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -472,6 +502,7 @@
 				25B6EC8F19037BA700DA9186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B6EC9019037BA700DA9186 /* Build configuration list for PBXNativeTarget "shmupTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +511,7 @@
 				25B6EC9219037BA700DA9186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
