@@ -8,12 +8,13 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-static const uint32_t playerCategory = 0x1 << 0;
-static const uint32_t bulletCategory = 0x1 << 1;
+static const uint32_t bulletCategory = 0x1 << 0;
+static const uint32_t playerCategory = 0x1 << 1;
+static const uint32_t enemyCategory = 0x1 << 2;
 
 CGSize screensize;
 
-@interface MyScene : SKScene
+@interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 
 

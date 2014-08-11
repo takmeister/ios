@@ -17,6 +17,7 @@
         //Player
         self = [super initWithTexture:[SKTexture textureWithImageNamed:@"robot0.png"]];
         self.position = pos;
+        self.health = 100;
     }
     self.size = initsize;
     self.thespeed = initspeed;
@@ -25,8 +26,17 @@
     self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
     self.physicsBody.categoryBitMask = playerCategory;
+    self.physicsBody.contactTestBitMask = bulletCategory;
     self.physicsBody.dynamic = false;
     return self;
+}
+
+-(void)damage:(int)power {
+    self.health -= power;
+    
+    if (self.health <= 0) {
+        [self removeFromParent];
+    }
 }
 
 @end

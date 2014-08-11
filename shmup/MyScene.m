@@ -27,6 +27,7 @@ SKAction *bulletspawn;
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.contactDelegate = self;
         
         //Player
         maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(5, 5) withSpeed:2.0 withTexture:0 withType:0];
@@ -52,7 +53,7 @@ SKAction *bulletspawn;
 
 -(void)shootbullets:(Player*)thechosen{
     bulletspawn = [SKAction runBlock:^{
-        Bullet *newbullet = [[Bullet alloc]init:10 andPosition:CGPointMake(maine.position.x + 20, maine.position.y) withSpeed:CGVectorMake(1500, 0) andDecay:5];
+        Bullet *newbullet = [[Bullet alloc]init:10 andPosition:CGPointMake(maine.position.x, maine.position.y) withSpeed:CGVectorMake(1500, 0) isEnemy:false andDecay:5];
         [self addChild:newbullet];
         
         SKAction *remove = [SKAction removeFromParent];
@@ -100,6 +101,38 @@ SKAction *bulletspawn;
         }
         if (picked.identity == 1){
             [maine removeActionForKey:@"shooting"];
+        }
+    }
+}
+
+-(void)didBeginContact:(SKPhysicsContact *)contact {
+    SKSpriteNode *firstBody, *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask){
+        firstBody = (SKSpriteNode *)contact.bodyA.node;
+        secondBody = (SKSpriteNode *)contact.bodyB.node;
+    }
+    else {
+        firstBody = (SKSpriteNode *)contact.bodyB.node;
+        secondBody = (SKSpriteNode *)contact.bodyA.node;
+    }
+    //Check if the player hit a bullet, so that it is safe to cast them as their respective classes
+    if (([firstBody isKindOfClass:[Bullet class]]) && ([secondBody isKindOfClass:[Player class]])){
+        Bullet *selectBullet = (Bullet*)firstBody;
+        Player *selectPlayer = (Player*)secondBody;
+        
+        if (selectBullet.isEnemy == true) { //Bullet is from enemy
+            [selectBullet removeFromParent];
+            [selectPlayer damage:selectBullet.power];
+        }
+    }
+    else if (([firstBody isKindOfClass:[Bullet class]]) && ([secondBody isKindOfClass:[Enemy class]])){
+        Bullet *selectBullet = (Bullet*)firstBody;
+        Enemy *selectEnemy = (Enemy*)secondBody;
+        
+        if (selectBullet.isEnemy == false) { //Bullet is from player
+            [selectBullet removeFromParent];
+            [selectEnemy removeFromParent];
         }
     }
 }

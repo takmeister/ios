@@ -11,7 +11,9 @@
 @interface Bullet : SKSpriteNode
 
 @property (nonatomic)float decay;
+@property (nonatomic)bool isEnemy;
+@property (nonatomic)float power;
 
--(Bullet*)init:(float)radius andPosition:(CGPoint)pos withSpeed:(CGVector)speed andDecay:(float)decayinit;
+-(Bullet*)init:(float)radius andPosition:(CGPoint)pos withSpeed:(CGVector)speed isEnemy:(bool)isEnemy andDecay:(float)decayinit;
 
 @end

@@ -11,7 +11,7 @@
 
 @implementation Bullet
 
--(Bullet*)init:(float)radius andPosition:(CGPoint)pos withSpeed:(CGVector)speed andDecay:(float)decayinit{
+-(Bullet*)init:(float)radius andPosition:(CGPoint)pos withSpeed:(CGVector)speed isEnemy:(bool)isEnemy andDecay:(float)decayinit{
     self = [super initWithColor:[UIColor greenColor] size:CGSizeMake(radius, radius)];
     self.position = pos;
     self.zPosition = 2;
@@ -19,9 +19,12 @@
     self.physicsBody.velocity = speed;
     self.physicsBody.linearDamping = 0;
     self.decay = decayinit;
-    
+    self.physicsBody.allowsRotation = false;
+    self.isEnemy = isEnemy;
+    self.power = radius * sqrtf(pow(speed.dx, 2) + pow(speed.dy, 2)) / 100;
     self.physicsBody.categoryBitMask = bulletCategory;
-    self.physicsBody.contactTestBitMask = 0;
+    self.physicsBody.contactTestBitMask = playerCategory | enemyCategory;
+    self.physicsBody.collisionBitMask = 0;
     
     [self runAction:[SKAction sequence:@[[SKAction waitForDuration:self.decay],[SKAction runBlock:^{[self removeFromParent];}]]]];
     

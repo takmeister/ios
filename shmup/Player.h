@@ -12,7 +12,10 @@
 
 @property (nonatomic) float primaryfirerate;
 @property (nonatomic) float thespeed;
+@property (nonatomic) int health;
 
 -(Player*)init:(CGPoint)pos withSize:(CGSize)initsize  withHitmarkersize:(CGSize)markersize withSpeed:(float)initspeed withTexture:(int)ID withType:(int)thetype;
+
+-(void)damage:(int)power;
 
 @end
