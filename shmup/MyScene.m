@@ -10,11 +10,11 @@
 #import "Player.h"
 #import "Movearea.h"
 #import "Bullet.h"
+#import "Enemy.h"
 
 Player *maine;
 Movearea *leftarea;
 Movearea *rightarea;
-CGSize screensize;
 CGPoint offset;
 SKAction *bulletspawn;
 
@@ -33,6 +33,11 @@ SKAction *bulletspawn;
         [self addChild:maine];
         
         //Objects
+        SKAction *spawn = [SKAction runBlock:^{
+            Enemy *newinit = [[Enemy alloc] init:0];
+            [self addChild:newinit];
+        }];
+        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[spawn,[SKAction waitForDuration:2]]]]];
         
         //Touch Interface
         leftarea = [[Movearea alloc]initWithColor:[UIColor yellowColor] andSize:CGSizeMake(screensize.width / 2, screensize.height) andID:0 andPosition:CGPointMake(screensize.width / 4, screensize.height / 2)];
@@ -47,7 +52,7 @@ SKAction *bulletspawn;
 
 -(void)shootbullets:(Player*)thechosen{
     bulletspawn = [SKAction runBlock:^{
-        Bullet *newbullet = [[Bullet alloc]init:10 andPosition:CGPointMake(maine.position.x, maine.position.y) withSpeed:CGVectorMake(1500, 0) andDecay:5];
+        Bullet *newbullet = [[Bullet alloc]init:10 andPosition:CGPointMake(maine.position.x + 20, maine.position.y) withSpeed:CGVectorMake(1500, 0) andDecay:5];
         [self addChild:newbullet];
         
         SKAction *remove = [SKAction removeFromParent];

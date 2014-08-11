@@ -24,8 +24,8 @@
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:markersize];
     self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
+    self.physicsBody.categoryBitMask = playerCategory;
     self.physicsBody.dynamic = false;
-    self.physicsBody.categoryBitMask = player;
     return self;
 }
 

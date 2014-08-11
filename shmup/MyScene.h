@@ -8,8 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 
- static const uint32_t player = 0x1 << 0;
- static const uint32_t playerbullet = 0x1 << 1;
+static const uint32_t playerCategory = 0x1 << 0;
+static const uint32_t bulletCategory = 0x1 << 1;
+
+CGSize screensize;
 
 @interface MyScene : SKScene
 
