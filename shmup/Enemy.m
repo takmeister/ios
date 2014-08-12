@@ -28,8 +28,6 @@
             [self.scene addChild:enemybullet];
         }]]]];
         self.health = 1000;
-        
-        randomTime = arc4random() % 5;
     }
     
     return self;
@@ -53,11 +51,21 @@
     SKAction *jitter2 = [SKAction moveBy:CGVectorMake(-5, -5) duration:0.03];
     
     SKAction *damagesequence = [SKAction sequence:@[jitter1,jitter2]];
-    
     [self runAction:[SKAction repeatAction:damagesequence count:3]];
-    
-    if (self.health <= 0) {
-        [self removeFromParent];
-    }
+        
+        if (self.health <= 0) { //Death
+            
+            SKAction *deathAnimation = [SKAction rotateByAngle:-10*M_PI duration:3];
+            self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(1, 1)];
+            self.physicsBody.categoryBitMask = 0;
+            self.physicsBody.collisionBitMask = 0;
+            self.physicsBody.contactTestBitMask = 0;
+            self.physicsBody.dynamic = true;
+            self.physicsBody.allowsRotation = true;
+            self.physicsBody.velocity = CGVectorMake(80, 80);
+            [self removeAllChildren];
+            
+            [self runAction:[SKAction sequence:@[deathAnimation,[SKAction runBlock:^{[self removeFromParent];}]]]];
+        }
 }
 @end

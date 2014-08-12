@@ -52,8 +52,16 @@
     
     [self runAction:[SKAction repeatAction:damagesequence count:3]];
     
-    if (self.health <= 0) {
-        [self removeFromParent];
+    if (self.health <= 0) { //Death
+        
+        SKAction *deathAnimation = [SKAction rotateByAngle:30*M_PI duration:3];
+        isAlive = false;
+        self.physicsBody.dynamic = true;
+        self.physicsBody.allowsRotation = true;
+        self.physicsBody.velocity = CGVectorMake(-80, 80);
+        [self removeAllChildren];
+        
+        [self runAction:[SKAction sequence:@[deathAnimation,[SKAction runBlock:^{[self removeFromParent];}]]]];
     }
 }
 

@@ -26,12 +26,14 @@ SKAction *bulletspawn;
         screensize = self.size;
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        self.physicsWorld.gravity = CGVectorMake(0, -1);
+        self.physicsWorld.gravity = CGVectorMake(0, -5);
         self.physicsWorld.contactDelegate = self;
         
         //Player
         maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(5, 5) withSpeed:2.0 withTexture:0 withType:0];
         [self addChild:maine];
+        
+        isAlive = true;
         
         //Objects
         SKAction *spawn = [SKAction runBlock:^{
@@ -140,8 +142,11 @@ SKAction *bulletspawn;
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
+    if (isAlive == true){
     [leftarea drag];
     [rightarea drag];
+    }
     
     if ((maine.position.x + leftarea.displacement.x * maine.thespeed <= screensize.width)&&(maine.position.x + leftarea.displacement.x * maine.thespeed >= 0)&&(maine.position.y + leftarea.displacement.y * maine.thespeed <= screensize.height)&&(maine.position.y + leftarea.displacement.y * maine.thespeed >= 0)){
         maine.position = CGPointMake(maine.position.x + leftarea.displacement.x * maine.thespeed, maine.position.y + leftarea.displacement.y * maine.thespeed);
