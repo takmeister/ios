@@ -87,7 +87,7 @@
     return self;
 }
 
--(void)damage:(int)power {
+-(void)damage:(int)power { //When Enemy is Damaged
     self.health -= power;
     
     if (power == 0) {
@@ -111,7 +111,7 @@
     SKAction *damagesequence = [SKAction sequence:@[jitter1,jitter2]];
     [self runAction:[SKAction repeatAction:damagesequence count:3]];
         
-        if (self.health <= 0) { //Death
+        if (self.health <= 0) { //Death Sequence
             score += self.maxhealth;
             
             SKAction *deathAnimation = [SKAction rotateByAngle:-10*M_PI duration:3];

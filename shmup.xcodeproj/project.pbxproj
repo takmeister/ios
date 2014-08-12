@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		25102673191576F900B2946F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25102671191576F900B2946F /* spark.png */; };
 		251026811915866600B2946F /* bernier.sks in Resources */ = {isa = PBXBuildFile; fileRef = 251026801915866600B2946F /* bernier.sks */; };
+		256CD974199A74AC00A4403E /* buttonlol.png in Resources */ = {isa = PBXBuildFile; fileRef = 256CD971199A74AC00A4403E /* buttonlol.png */; };
+		256CD975199A74AC00A4403E /* goHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 256CD972199A74AC00A4403E /* goHome.png */; };
+		256CD976199A74AC00A4403E /* kaga.png in Resources */ = {isa = PBXBuildFile; fileRef = 256CD973199A74AC00A4403E /* kaga.png */; };
+		256CD97B199A74B900A4403E /* ExtraScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 256CD978199A74B900A4403E /* ExtraScene1.m */; };
+		256CD97C199A74B900A4403E /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 256CD97A199A74B900A4403E /* MenuScene.m */; };
 		2584211B19970D5C00EDAA04 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584211A19970D5C00EDAA04 /* Enemy.m */; };
 		25B6EC5819037BA600DA9186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5719037BA600DA9186 /* Foundation.framework */; };
 		25B6EC5A19037BA600DA9186 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5919037BA600DA9186 /* CoreGraphics.framework */; };
@@ -45,6 +50,13 @@
 /* Begin PBXFileReference section */
 		25102671191576F900B2946F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		251026801915866600B2946F /* bernier.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = bernier.sks; path = ../bernier.sks; sourceTree = "<group>"; };
+		256CD971199A74AC00A4403E /* buttonlol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonlol.png; path = ../../../../../Volumes/WORK/copy/buttonlol.png; sourceTree = "<group>"; };
+		256CD972199A74AC00A4403E /* goHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goHome.png; path = ../../../../../Volumes/WORK/copy/goHome.png; sourceTree = "<group>"; };
+		256CD973199A74AC00A4403E /* kaga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kaga.png; path = ../../../../../Volumes/WORK/copy/kaga.png; sourceTree = "<group>"; };
+		256CD977199A74B900A4403E /* ExtraScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtraScene1.h; path = ../../../../../Volumes/WORK/copy/ExtraScene1.h; sourceTree = "<group>"; };
+		256CD978199A74B900A4403E /* ExtraScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtraScene1.m; path = ../../../../../Volumes/WORK/copy/ExtraScene1.m; sourceTree = "<group>"; };
+		256CD979199A74B900A4403E /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuScene.h; path = ../../../../../Volumes/WORK/copy/MenuScene.h; sourceTree = "<group>"; };
+		256CD97A199A74B900A4403E /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuScene.m; path = ../../../../../Volumes/WORK/copy/MenuScene.m; sourceTree = "<group>"; };
 		2584211919970D5C00EDAA04 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		2584211A19970D5C00EDAA04 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		25B6EC5419037BA500DA9186 /* shmup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shmup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,9 +162,16 @@
 				25B6EC9419037C3300DA9186 /* Player.m */,
 				2584211919970D5C00EDAA04 /* Enemy.h */,
 				2584211A19970D5C00EDAA04 /* Enemy.m */,
+				256CD977199A74B900A4403E /* ExtraScene1.h */,
+				256CD978199A74B900A4403E /* ExtraScene1.m */,
+				256CD979199A74B900A4403E /* MenuScene.h */,
+				256CD97A199A74B900A4403E /* MenuScene.m */,
 				25102671191576F900B2946F /* spark.png */,
 				25B6EC9C1904E58400DA9186 /* Bullet.h */,
 				25B6EC9D1904E58400DA9186 /* Bullet.m */,
+				256CD971199A74AC00A4403E /* buttonlol.png */,
+				256CD972199A74AC00A4403E /* goHome.png */,
+				256CD973199A74AC00A4403E /* kaga.png */,
 				25B6EC9F19071E3900DA9186 /* robot0.png */,
 				251026801915866600B2946F /* bernier.sks */,
 				25B6EC7619037BA700DA9186 /* Images.xcassets */,
@@ -267,8 +286,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B6EC6419037BA600DA9186 /* InfoPlist.strings in Resources */,
+				256CD974199A74AC00A4403E /* buttonlol.png in Resources */,
+				256CD976199A74AC00A4403E /* kaga.png in Resources */,
 				25102673191576F900B2946F /* spark.png in Resources */,
 				25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */,
+				256CD975199A74AC00A4403E /* goHome.png in Resources */,
 				251026811915866600B2946F /* bernier.sks in Resources */,
 				25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */,
 				25B6ECA019071E3900DA9186 /* robot0.png in Resources */,
@@ -291,9 +313,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2584211B19970D5C00EDAA04 /* Enemy.m in Sources */,
+				256CD97C199A74B900A4403E /* MenuScene.m in Sources */,
 				25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */,
 				25B6EC7319037BA700DA9186 /* MyScene.m in Sources */,
 				25B6EC7019037BA700DA9186 /* ViewController.m in Sources */,
+				256CD97B199A74B900A4403E /* ExtraScene1.m in Sources */,
 				25B6EC6A19037BA600DA9186 /* AppDelegate.m in Sources */,
 				25B6EC9819037E0500DA9186 /* Movearea.m in Sources */,
 				25B6EC6619037BA600DA9186 /* main.m in Sources */,
