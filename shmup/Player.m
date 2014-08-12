@@ -26,13 +26,17 @@
     self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
     self.physicsBody.categoryBitMask = playerCategory;
-    self.physicsBody.contactTestBitMask = bulletCategory;
+    self.physicsBody.contactTestBitMask = bulletCategory | enemyCategory;
     self.physicsBody.dynamic = false;
     return self;
 }
 
 -(void)damage:(int)power {
     self.health -= power;
+    
+    if (power == 0) {
+        self.health = 0;
+    }
     
     SKLabelNode *damage = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-UltraLight"];
     damage.text = [NSString stringWithFormat:@"%d",power];
@@ -54,11 +58,12 @@
     
     if (self.health <= 0) { //Death
         
-        SKAction *deathAnimation = [SKAction rotateByAngle:30*M_PI duration:3];
+        self.health = 0;
+        SKAction *deathAnimation = [SKAction rotateByAngle:10*M_PI duration:3];
         isAlive = false;
         self.physicsBody.dynamic = true;
         self.physicsBody.allowsRotation = true;
-        self.physicsBody.velocity = CGVectorMake(-80, 80);
+        self.physicsBody.velocity = CGVectorMake(-20, 20);
         [self removeAllChildren];
         
         [self runAction:[SKAction sequence:@[deathAnimation,[SKAction runBlock:^{[self removeFromParent];}]]]];

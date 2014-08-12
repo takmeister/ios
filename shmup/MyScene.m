@@ -17,6 +17,7 @@ Movearea *leftarea;
 Movearea *rightarea;
 CGPoint offset;
 SKAction *bulletspawn;
+SKLabelNode *scoreLabel;
 
 @implementation MyScene
 
@@ -28,20 +29,20 @@ SKAction *bulletspawn;
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsWorld.gravity = CGVectorMake(0, -5);
         self.physicsWorld.contactDelegate = self;
+        score = 0;
         
         //Player
         maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(5, 5) withSpeed:2.0 withTexture:0 withType:0];
         [self addChild:maine];
         
-        isAlive = true;
+        isAlive = true; //Player is alive
+        cooling = false; //Enemy Spawn Cooldown inactive
         
         //Objects
-        SKAction *spawn = [SKAction runBlock:^{
-            Enemy *newinit = [[Enemy alloc] init:0];
-            [self addChild:newinit];
-        }];
-        
-        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[spawn,[SKAction waitForDuration:2]]]]];
+        scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-UltraLight"];
+        scoreLabel.position = CGPointMake(screensize.width / 2, screensize.height - 30);
+        scoreLabel.zPosition = 6;
+        [self addChild:scoreLabel];
         
         //Touch Interface
         leftarea = [[Movearea alloc]initWithColor:[UIColor yellowColor] andSize:CGSizeMake(screensize.width / 2, screensize.height) andID:0 andPosition:CGPointMake(screensize.width / 4, screensize.height / 2)];
@@ -138,10 +139,38 @@ SKAction *bulletspawn;
             [selectEnemy damage:selectBullet.power];
         }
     }
+    else if (([firstBody isKindOfClass:[Player class]]) && ([secondBody isKindOfClass:[Enemy class]])){
+        Player *selectPlayer = (Player*)firstBody;
+        Enemy *selectEnemy = (Enemy*)secondBody;
+        
+        [selectPlayer damage:0];
+        [selectEnemy damage:0];
+        
+    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %d Health: %d",score,maine.health];
+    
+    if (cooling == false) {
+        int picker = arc4random() % 100;
+        
+        
+        if (picker >= 75) {
+            Enemy *enemyObject = [[Enemy alloc]init:2];
+            [self addChild:enemyObject];
+        }
+        else if (picker >= 70) {
+            Enemy *enemyObject = [[Enemy alloc]init:1];
+            [self addChild:enemyObject];
+        }
+        else {
+            Enemy *enemyObject = [[Enemy alloc]init:0];
+            [self addChild:enemyObject];
+        }
+    }
+    
     
     if (isAlive == true){
     [leftarea drag];

@@ -11,6 +11,7 @@
 @interface Enemy : SKSpriteNode
 
 @property (nonatomic) int health;
+@property (nonatomic) int maxhealth;
 
 -(Enemy*)init:(int)ID;
 
