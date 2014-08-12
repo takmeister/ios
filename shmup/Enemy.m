@@ -16,7 +16,7 @@
     if (ID == 0) {
         //Test Enemy
         self = [super initWithColor:[UIColor redColor] size:CGSizeMake(50, 50)];
-        self.position = CGPointMake(screensize.width, screensize.height / 2);
+        self.position = CGPointMake(screensize.width, arc4random() % (int)screensize.height);
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
         self.physicsBody.allowsRotation = FALSE;
         self.physicsBody.dynamic = FALSE;
@@ -24,10 +24,12 @@
         self.physicsBody.contactTestBitMask = bulletCategory;
         [self runAction:[SKAction sequence:@[[SKAction moveBy:CGVectorMake(-screensize.width * 2, 0) duration:20],[SKAction runBlock:^{[self removeFromParent];}]]]];
         [self runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-100, 0) isEnemy:true andDecay:5];
+            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-150, 0) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
         }]]]];
-        self.health = 20;
+        self.health = 1000;
+        
+        randomTime = arc4random() % 5;
     }
     
     return self;

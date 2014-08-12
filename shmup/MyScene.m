@@ -38,6 +38,7 @@ SKAction *bulletspawn;
             Enemy *newinit = [[Enemy alloc] init:0];
             [self addChild:newinit];
         }];
+        
         [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[spawn,[SKAction waitForDuration:2]]]]];
         
         //Touch Interface
