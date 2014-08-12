@@ -26,7 +26,7 @@ SKAction *bulletspawn;
         screensize = self.size;
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.gravity = CGVectorMake(0, -1);
         self.physicsWorld.contactDelegate = self;
         
         //Player
@@ -132,7 +132,7 @@ SKAction *bulletspawn;
         
         if (selectBullet.isEnemy == false) { //Bullet is from player
             [selectBullet removeFromParent];
-            [selectEnemy removeFromParent];
+            [selectEnemy damage:selectBullet.power];
         }
     }
 }

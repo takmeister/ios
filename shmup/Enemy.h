@@ -10,6 +10,10 @@
 
 @interface Enemy : SKSpriteNode
 
+@property (nonatomic) int health;
+
 -(Enemy*)init:(int)ID;
+
+-(void)damage:(int)power;
 
 @end

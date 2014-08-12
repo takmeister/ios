@@ -25,6 +25,7 @@
     self.physicsBody.categoryBitMask = bulletCategory;
     self.physicsBody.contactTestBitMask = playerCategory | enemyCategory;
     self.physicsBody.collisionBitMask = 0;
+    self.physicsBody.affectedByGravity = 0;
     
     [self runAction:[SKAction sequence:@[[SKAction waitForDuration:self.decay],[SKAction runBlock:^{[self removeFromParent];}]]]];
     

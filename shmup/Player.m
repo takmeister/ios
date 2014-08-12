@@ -34,6 +34,24 @@
 -(void)damage:(int)power {
     self.health -= power;
     
+    SKLabelNode *damage = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-UltraLight"];
+    damage.text = [NSString stringWithFormat:@"%d",power];
+    damage.position = self.position;
+    damage.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(1, 1)];
+    damage.physicsBody.collisionBitMask = 0;
+    damage.physicsBody.velocity = CGVectorMake(-80, 80);
+    damage.zPosition = 5;
+    [self.scene addChild:damage];
+    [damage runAction:[SKAction sequence:@[[SKAction waitForDuration:5],[SKAction runBlock:^{[damage removeFromParent];}]]]];
+    
+    //Damage animation
+    SKAction *jitter1 = [SKAction moveBy:CGVectorMake(5, 5) duration:0.03];
+    SKAction *jitter2 = [SKAction moveBy:CGVectorMake(-5, -5) duration:0.03];
+    
+    SKAction *damagesequence = [SKAction sequence:@[jitter1,jitter2]];
+    
+    [self runAction:[SKAction repeatAction:damagesequence count:3]];
+    
     if (self.health <= 0) {
         [self removeFromParent];
     }
