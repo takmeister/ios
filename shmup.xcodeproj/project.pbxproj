@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		25102673191576F900B2946F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25102671191576F900B2946F /* spark.png */; };
 		251026811915866600B2946F /* bernier.sks in Resources */ = {isa = PBXBuildFile; fileRef = 251026801915866600B2946F /* bernier.sks */; };
-		253A0842199BD40500789FEF /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A083A199BD40400789FEF /* button.png */; };
-		253A0843199BD40500789FEF /* buttonlol.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A083B199BD40400789FEF /* buttonlol.png */; };
-		253A0844199BD40500789FEF /* ExtraScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A083D199BD40500789FEF /* ExtraScene1.m */; };
-		253A0845199BD40500789FEF /* goHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A083E199BD40500789FEF /* goHome.png */; };
-		253A0846199BD40500789FEF /* kaga.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A083F199BD40500789FEF /* kaga.png */; };
-		253A0847199BD40500789FEF /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A0841199BD40500789FEF /* MenuScene.m */; };
+		253A0850199BD57000789FEF /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A0848199BD57000789FEF /* button.png */; };
+		253A0851199BD57000789FEF /* ExtraScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A084A199BD57000789FEF /* ExtraScene1.m */; };
+		253A0852199BD57000789FEF /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A084C199BD57000789FEF /* MenuScene.m */; };
+		253A0853199BD57000789FEF /* buttonlol.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084D199BD57000789FEF /* buttonlol.png */; };
+		253A0854199BD57000789FEF /* goHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084E199BD57000789FEF /* goHome.png */; };
+		253A0855199BD57000789FEF /* kaga.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084F199BD57000789FEF /* kaga.png */; };
 		2584211B19970D5C00EDAA04 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584211A19970D5C00EDAA04 /* Enemy.m */; };
 		25B6EC5819037BA600DA9186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5719037BA600DA9186 /* Foundation.framework */; };
 		25B6EC5A19037BA600DA9186 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5919037BA600DA9186 /* CoreGraphics.framework */; };
@@ -51,14 +51,14 @@
 /* Begin PBXFileReference section */
 		25102671191576F900B2946F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		251026801915866600B2946F /* bernier.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = bernier.sks; path = ../bernier.sks; sourceTree = "<group>"; };
-		253A083A199BD40400789FEF /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = /Volumes/WORK/copy/button.png; sourceTree = "<absolute>"; };
-		253A083B199BD40400789FEF /* buttonlol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonlol.png; path = /Volumes/WORK/copy/buttonlol.png; sourceTree = "<absolute>"; };
-		253A083C199BD40500789FEF /* ExtraScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtraScene1.h; path = /Volumes/WORK/copy/ExtraScene1.h; sourceTree = "<absolute>"; };
-		253A083D199BD40500789FEF /* ExtraScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtraScene1.m; path = /Volumes/WORK/copy/ExtraScene1.m; sourceTree = "<absolute>"; };
-		253A083E199BD40500789FEF /* goHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goHome.png; path = /Volumes/WORK/copy/goHome.png; sourceTree = "<absolute>"; };
-		253A083F199BD40500789FEF /* kaga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kaga.png; path = /Volumes/WORK/copy/kaga.png; sourceTree = "<absolute>"; };
-		253A0840199BD40500789FEF /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuScene.h; path = /Volumes/WORK/copy/MenuScene.h; sourceTree = "<absolute>"; };
-		253A0841199BD40500789FEF /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuScene.m; path = /Volumes/WORK/copy/MenuScene.m; sourceTree = "<absolute>"; };
+		253A0848199BD57000789FEF /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		253A0849199BD57000789FEF /* ExtraScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraScene1.h; sourceTree = "<group>"; };
+		253A084A199BD57000789FEF /* ExtraScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraScene1.m; sourceTree = "<group>"; };
+		253A084B199BD57000789FEF /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		253A084C199BD57000789FEF /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
+		253A084D199BD57000789FEF /* buttonlol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonlol.png; sourceTree = "<group>"; };
+		253A084E199BD57000789FEF /* goHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goHome.png; sourceTree = "<group>"; };
+		253A084F199BD57000789FEF /* kaga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kaga.png; sourceTree = "<group>"; };
 		2584211919970D5C00EDAA04 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		2584211A19970D5C00EDAA04 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		25B6EC5419037BA500DA9186 /* shmup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shmup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,14 +151,6 @@
 		25B6EC5F19037BA600DA9186 /* shmup */ = {
 			isa = PBXGroup;
 			children = (
-				253A083A199BD40400789FEF /* button.png */,
-				253A083B199BD40400789FEF /* buttonlol.png */,
-				253A083C199BD40500789FEF /* ExtraScene1.h */,
-				253A083D199BD40500789FEF /* ExtraScene1.m */,
-				253A083E199BD40500789FEF /* goHome.png */,
-				253A083F199BD40500789FEF /* kaga.png */,
-				253A0840199BD40500789FEF /* MenuScene.h */,
-				253A0841199BD40500789FEF /* MenuScene.m */,
 				25B6EC6819037BA600DA9186 /* AppDelegate.h */,
 				25B6EC6919037BA600DA9186 /* AppDelegate.m */,
 				25B6EC6B19037BA700DA9186 /* Main.storyboard */,
@@ -170,6 +162,14 @@
 				25B6EC9719037E0500DA9186 /* Movearea.m */,
 				25B6EC9319037C3300DA9186 /* Player.h */,
 				25B6EC9419037C3300DA9186 /* Player.m */,
+				253A0848199BD57000789FEF /* button.png */,
+				253A0849199BD57000789FEF /* ExtraScene1.h */,
+				253A084A199BD57000789FEF /* ExtraScene1.m */,
+				253A084B199BD57000789FEF /* MenuScene.h */,
+				253A084C199BD57000789FEF /* MenuScene.m */,
+				253A084D199BD57000789FEF /* buttonlol.png */,
+				253A084E199BD57000789FEF /* goHome.png */,
+				253A084F199BD57000789FEF /* kaga.png */,
 				2584211919970D5C00EDAA04 /* Enemy.h */,
 				2584211A19970D5C00EDAA04 /* Enemy.m */,
 				25102671191576F900B2946F /* spark.png */,
@@ -288,12 +288,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				253A0842199BD40500789FEF /* button.png in Resources */,
-				253A0846199BD40500789FEF /* kaga.png in Resources */,
+				253A0850199BD57000789FEF /* button.png in Resources */,
+				253A0855199BD57000789FEF /* kaga.png in Resources */,
 				25B6EC6419037BA600DA9186 /* InfoPlist.strings in Resources */,
-				253A0845199BD40500789FEF /* goHome.png in Resources */,
+				253A0854199BD57000789FEF /* goHome.png in Resources */,
 				25102673191576F900B2946F /* spark.png in Resources */,
-				253A0843199BD40500789FEF /* buttonlol.png in Resources */,
+				253A0853199BD57000789FEF /* buttonlol.png in Resources */,
 				25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */,
 				251026811915866600B2946F /* bernier.sks in Resources */,
 				25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */,
@@ -317,11 +317,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2584211B19970D5C00EDAA04 /* Enemy.m in Sources */,
-				253A0847199BD40500789FEF /* MenuScene.m in Sources */,
+				253A0852199BD57000789FEF /* MenuScene.m in Sources */,
 				25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */,
 				25B6EC7319037BA700DA9186 /* MyScene.m in Sources */,
 				25B6EC7019037BA700DA9186 /* ViewController.m in Sources */,
-				253A0844199BD40500789FEF /* ExtraScene1.m in Sources */,
+				253A0851199BD57000789FEF /* ExtraScene1.m in Sources */,
 				25B6EC6A19037BA600DA9186 /* AppDelegate.m in Sources */,
 				25B6EC9819037E0500DA9186 /* Movearea.m in Sources */,
 				25B6EC6619037BA600DA9186 /* main.m in Sources */,
