@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Player.h"
 
 static const uint32_t bulletCategory = 0x1 << 0;
 static const uint32_t playerCategory = 0x1 << 1;
@@ -18,6 +19,8 @@ bool cooling;
 int score;
 
 CGSize screensize;
+Player *maine;
+SKLabelNode *scoreLabel;
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 

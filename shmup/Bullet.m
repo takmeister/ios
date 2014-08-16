@@ -22,10 +22,10 @@
     self.physicsBody.allowsRotation = false;
     self.isEnemy = isEnemy;
     self.power = radius * sqrtf(pow(speed.dx, 2) + pow(speed.dy, 2)) / 100;
-    self.physicsBody.categoryBitMask = bulletCategory;
+    self.physicsBody.categoryBitMask = 0;
     self.physicsBody.contactTestBitMask = playerCategory | enemyCategory;
     self.physicsBody.collisionBitMask = 0;
-    self.physicsBody.affectedByGravity = 0;
+    self.physicsBody.affectedByGravity = false;
     
     [self runAction:[SKAction sequence:@[[SKAction waitForDuration:self.decay],[SKAction runBlock:^{[self removeFromParent];}]]]];
     

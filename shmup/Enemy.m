@@ -19,11 +19,14 @@
         self.position = CGPointMake(screensize.width, arc4random() % (int)screensize.height);
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
         [self runAction:[SKAction sequence:@[[SKAction moveBy:CGVectorMake(-screensize.width * 2, 0) duration:10],[SKAction runBlock:^{[self removeFromParent];}]]]];
-        [self runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-250, 0) isEnemy:true andDecay:5];
+        
+        SKAction *behaviour = [SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
+            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-(250 + 20*(score/5000)), 0) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
-        }]]]];
-        self.maxhealth = 1000;
+        }]]];
+        
+        [self runAction:[SKAction repeatAction:behaviour count:3]];
+        self.maxhealth = 500;
     }
     
     if (ID == 1) {
@@ -43,10 +46,20 @@
         
         CGPathAddCurveToPoint(sinePath, NULL, cp1x, cp1y, cp2x, cp1y, 0, cp1y);
         
-        [self runAction:[SKAction sequence:@[[SKAction followPath:sinePath asOffset:NO orientToPath:YES duration:5],[SKAction runBlock:^{[self removeFromParent];}]]]];
+        [self runAction:[SKAction sequence:@[[SKAction followPath:sinePath asOffset:NO orientToPath:YES duration:5],[SKAction runBlock:^{[self removeFromParent];}]]] withKey:@"actions"];
+        
+        //Maths bit
+        float opposite = maine.position.y - self.position.y;
+        float adjacent = maine.position.x - self.position.x;
+        
+        float angle = atanf(opposite/adjacent);
+        int magnitude = 500;
+        
+        float cosine = -magnitude*cosf(angle);
+        float sine = -magnitude*sinf(angle);
         
         SKAction *shootOne = [SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-250, 0) isEnemy:true andDecay:5];
+            Bullet *enemybullet = [[Bullet alloc]init:6 andPosition:self.position withSpeed:CGVectorMake(cosine, sine) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
         }];
         
@@ -57,14 +70,16 @@
     
     if (ID == 2) {
         //Bullet man
-        self = [super initWithColor:[UIColor greenColor] size:CGSizeMake(20, 20)];
+        self = [super initWithColor:[UIColor magentaColor] size:CGSizeMake(20, 20)];
         self.position = CGPointMake(screensize.width, arc4random() % (int)screensize.height);
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
         [self runAction:[SKAction sequence:@[[SKAction moveBy:CGVectorMake(-screensize.width * 2, 0) duration:5],[SKAction runBlock:^{[self removeFromParent];}]]]];
-        [self runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
+        SKAction *shootBullet = [SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
             Bullet *enemybullet = [[Bullet alloc]init:5 andPosition:self.position withSpeed:CGVectorMake(-550, 0) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
-        }]]]];
+        }]]];
+        
+        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[shootBullet,[SKAction waitForDuration:3]]]]];
         
         self.maxhealth = 1000;
         
@@ -73,7 +88,8 @@
     self.physicsBody.allowsRotation = FALSE;
     self.physicsBody.dynamic = FALSE;
     self.physicsBody.categoryBitMask = enemyCategory;
-    self.physicsBody.contactTestBitMask = bulletCategory | playerCategory;
+    self.physicsBody.collisionBitMask = 0;
+    self.physicsBody.contactTestBitMask = playerCategory;
     
     cooling = true;
     
@@ -122,6 +138,7 @@
             self.physicsBody.dynamic = true;
             self.physicsBody.allowsRotation = true;
             self.physicsBody.velocity = CGVectorMake(80, 80);
+            [self removeActionForKey:@"actions"];
             [self removeAllChildren];
             
             [self runAction:[SKAction sequence:@[deathAnimation,[SKAction runBlock:^{[self removeFromParent];}]]]];

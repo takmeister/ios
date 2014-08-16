@@ -11,13 +11,22 @@
 #import "Movearea.h"
 #import "Bullet.h"
 #import "Enemy.h"
+#import "PBParallaxBackground.h" //new
 
-Player *maine;
 Movearea *leftarea;
 Movearea *rightarea;
 CGPoint offset;
 SKAction *bulletspawn;
-SKLabelNode *scoreLabel;
+
+//new
+
+@interface MyScene ()
+
+@property (nonatomic, strong) PBParallaxBackground * parallaxBackground;
+
+@end
+
+//new
 
 @implementation MyScene
 
@@ -30,6 +39,12 @@ SKLabelNode *scoreLabel;
         self.physicsWorld.gravity = CGVectorMake(0, -5);
         self.physicsWorld.contactDelegate = self;
         score = 0;
+        
+        NSArray * imageNames = @[@"ponyX.jpeg", @"starsX.jpeg", @"kaga.png"];
+        PBParallaxBackground * parallax = [[PBParallaxBackground alloc] initWithBackgrounds:imageNames size:size direction:kPBParallaxBackgroundDirectionLeft fastestSpeed:4
+                                                                           andSpeedDecrease:1];
+        self.parallaxBackground = parallax;
+        [self addChild:parallax];
         
         //Player
         maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(5, 5) withSpeed:2.0 withTexture:0 withType:0];
@@ -139,29 +154,25 @@ SKLabelNode *scoreLabel;
             [selectEnemy damage:selectBullet.power];
         }
     }
-    else if (([firstBody isKindOfClass:[Player class]]) && ([secondBody isKindOfClass:[Enemy class]])){
-        Player *selectPlayer = (Player*)firstBody;
-        Enemy *selectEnemy = (Enemy*)secondBody;
-        
-        [selectPlayer damage:0];
-        [selectEnemy damage:0];
-        
-    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
+    //new
+    [self.parallaxBackground update:currentTime];
+    //new
+    
     scoreLabel.text = [NSString stringWithFormat:@"Score: %d Health: %d",score,maine.health];
     
     if (cooling == false) {
-        int picker = arc4random() % 100;
+        int picker = arc4random_uniform(100);
         
-        
-        if (picker >= 75) {
+        if (picker >= 60) {
             Enemy *enemyObject = [[Enemy alloc]init:2];
             [self addChild:enemyObject];
         }
-        else if (picker >= 70) {
+        else if (picker >= 40) {
             Enemy *enemyObject = [[Enemy alloc]init:1];
             [self addChild:enemyObject];
         }

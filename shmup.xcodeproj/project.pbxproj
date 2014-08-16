@@ -15,6 +15,9 @@
 		253A0853199BD57000789FEF /* buttonlol.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084D199BD57000789FEF /* buttonlol.png */; };
 		253A0854199BD57000789FEF /* goHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084E199BD57000789FEF /* goHome.png */; };
 		253A0855199BD57000789FEF /* kaga.png in Resources */ = {isa = PBXBuildFile; fileRef = 253A084F199BD57000789FEF /* kaga.png */; };
+		253A085A199EBF7600789FEF /* PBParallaxBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A0857199EBF7600789FEF /* PBParallaxBackground.m */; };
+		253A085B199EBF7600789FEF /* ponyX.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 253A0858199EBF7600789FEF /* ponyX.jpeg */; };
+		253A085C199EBF7600789FEF /* starsX.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 253A0859199EBF7600789FEF /* starsX.jpeg */; };
 		2584211B19970D5C00EDAA04 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584211A19970D5C00EDAA04 /* Enemy.m */; };
 		25B6EC5819037BA600DA9186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5719037BA600DA9186 /* Foundation.framework */; };
 		25B6EC5A19037BA600DA9186 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B6EC5919037BA600DA9186 /* CoreGraphics.framework */; };
@@ -59,6 +62,10 @@
 		253A084D199BD57000789FEF /* buttonlol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonlol.png; sourceTree = "<group>"; };
 		253A084E199BD57000789FEF /* goHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goHome.png; sourceTree = "<group>"; };
 		253A084F199BD57000789FEF /* kaga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kaga.png; sourceTree = "<group>"; };
+		253A0856199EBF7600789FEF /* PBParallaxBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBParallaxBackground.h; sourceTree = "<group>"; };
+		253A0857199EBF7600789FEF /* PBParallaxBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBParallaxBackground.m; sourceTree = "<group>"; };
+		253A0858199EBF7600789FEF /* ponyX.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ponyX.jpeg; sourceTree = "<group>"; };
+		253A0859199EBF7600789FEF /* starsX.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starsX.jpeg; sourceTree = "<group>"; };
 		2584211919970D5C00EDAA04 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		2584211A19970D5C00EDAA04 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		25B6EC5419037BA500DA9186 /* shmup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shmup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +169,10 @@
 				25B6EC9719037E0500DA9186 /* Movearea.m */,
 				25B6EC9319037C3300DA9186 /* Player.h */,
 				25B6EC9419037C3300DA9186 /* Player.m */,
+				253A0856199EBF7600789FEF /* PBParallaxBackground.h */,
+				253A0857199EBF7600789FEF /* PBParallaxBackground.m */,
+				253A0858199EBF7600789FEF /* ponyX.jpeg */,
+				253A0859199EBF7600789FEF /* starsX.jpeg */,
 				253A0848199BD57000789FEF /* button.png */,
 				253A0849199BD57000789FEF /* ExtraScene1.h */,
 				253A084A199BD57000789FEF /* ExtraScene1.m */,
@@ -295,6 +306,8 @@
 				25102673191576F900B2946F /* spark.png in Resources */,
 				253A0853199BD57000789FEF /* buttonlol.png in Resources */,
 				25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */,
+				253A085B199EBF7600789FEF /* ponyX.jpeg in Resources */,
+				253A085C199EBF7600789FEF /* starsX.jpeg in Resources */,
 				251026811915866600B2946F /* bernier.sks in Resources */,
 				25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */,
 				25B6ECA019071E3900DA9186 /* robot0.png in Resources */,
@@ -323,6 +336,7 @@
 				25B6EC7019037BA700DA9186 /* ViewController.m in Sources */,
 				253A0851199BD57000789FEF /* ExtraScene1.m in Sources */,
 				25B6EC6A19037BA600DA9186 /* AppDelegate.m in Sources */,
+				253A085A199EBF7600789FEF /* PBParallaxBackground.m in Sources */,
 				25B6EC9819037E0500DA9186 /* Movearea.m in Sources */,
 				25B6EC6619037BA600DA9186 /* main.m in Sources */,
 				25B6EC9519037C3300DA9186 /* Player.m in Sources */,

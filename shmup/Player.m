@@ -26,13 +26,13 @@
     self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
     self.physicsBody.categoryBitMask = playerCategory;
-    self.physicsBody.contactTestBitMask = bulletCategory | enemyCategory;
+    self.physicsBody.contactTestBitMask = enemyCategory;
     self.physicsBody.dynamic = false;
     return self;
 }
 
 -(void)damage:(int)power {
-    self.health -= power;
+    self.health -= power; //Damage subtraction
     
     if (power == 0) {
         self.health = 0;
@@ -55,6 +55,7 @@
     SKAction *damagesequence = [SKAction sequence:@[jitter1,jitter2]];
     
     [self runAction:[SKAction repeatAction:damagesequence count:3]];
+    [scoreLabel runAction:[SKAction repeatAction:damagesequence count:3]];
     
     if (self.health <= 0) { //Death
         
