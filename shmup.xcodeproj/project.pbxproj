@@ -124,6 +124,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		253A085D199EDF5500789FEF /* Images and Words */ = {
+			isa = PBXGroup;
+			children = (
+				253A0858199EBF7600789FEF /* ponyX.jpeg */,
+				253A0859199EBF7600789FEF /* starsX.jpeg */,
+				253A0848199BD57000789FEF /* button.png */,
+				253A084D199BD57000789FEF /* buttonlol.png */,
+				253A084E199BD57000789FEF /* goHome.png */,
+				253A084F199BD57000789FEF /* kaga.png */,
+				25102671191576F900B2946F /* spark.png */,
+				25B6EC9F19071E3900DA9186 /* robot0.png */,
+			);
+			name = "Images and Words";
+			sourceTree = "<group>";
+		};
+		253A085E199EDF7F00789FEF /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				25B6EC9619037E0500DA9186 /* Movearea.h */,
+				25B6EC9719037E0500DA9186 /* Movearea.m */,
+				25B6EC9319037C3300DA9186 /* Player.h */,
+				25B6EC9419037C3300DA9186 /* Player.m */,
+				253A0856199EBF7600789FEF /* PBParallaxBackground.h */,
+				253A0857199EBF7600789FEF /* PBParallaxBackground.m */,
+				2584211919970D5C00EDAA04 /* Enemy.h */,
+				2584211A19970D5C00EDAA04 /* Enemy.m */,
+				25B6EC9C1904E58400DA9186 /* Bullet.h */,
+				25B6EC9D1904E58400DA9186 /* Bullet.m */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
 		25B6EC4B19037BA500DA9186 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +190,8 @@
 		25B6EC5F19037BA600DA9186 /* shmup */ = {
 			isa = PBXGroup;
 			children = (
+				253A085E199EDF7F00789FEF /* Subclasses */,
+				253A085D199EDF5500789FEF /* Images and Words */,
 				25B6EC6819037BA600DA9186 /* AppDelegate.h */,
 				25B6EC6919037BA600DA9186 /* AppDelegate.m */,
 				25B6EC6B19037BA700DA9186 /* Main.storyboard */,
@@ -165,28 +199,10 @@
 				25B6EC6F19037BA700DA9186 /* ViewController.m */,
 				25B6EC7119037BA700DA9186 /* MyScene.h */,
 				25B6EC7219037BA700DA9186 /* MyScene.m */,
-				25B6EC9619037E0500DA9186 /* Movearea.h */,
-				25B6EC9719037E0500DA9186 /* Movearea.m */,
-				25B6EC9319037C3300DA9186 /* Player.h */,
-				25B6EC9419037C3300DA9186 /* Player.m */,
-				253A0856199EBF7600789FEF /* PBParallaxBackground.h */,
-				253A0857199EBF7600789FEF /* PBParallaxBackground.m */,
-				253A0858199EBF7600789FEF /* ponyX.jpeg */,
-				253A0859199EBF7600789FEF /* starsX.jpeg */,
-				253A0848199BD57000789FEF /* button.png */,
 				253A0849199BD57000789FEF /* ExtraScene1.h */,
 				253A084A199BD57000789FEF /* ExtraScene1.m */,
 				253A084B199BD57000789FEF /* MenuScene.h */,
 				253A084C199BD57000789FEF /* MenuScene.m */,
-				253A084D199BD57000789FEF /* buttonlol.png */,
-				253A084E199BD57000789FEF /* goHome.png */,
-				253A084F199BD57000789FEF /* kaga.png */,
-				2584211919970D5C00EDAA04 /* Enemy.h */,
-				2584211A19970D5C00EDAA04 /* Enemy.m */,
-				25102671191576F900B2946F /* spark.png */,
-				25B6EC9C1904E58400DA9186 /* Bullet.h */,
-				25B6EC9D1904E58400DA9186 /* Bullet.m */,
-				25B6EC9F19071E3900DA9186 /* robot0.png */,
 				251026801915866600B2946F /* bernier.sks */,
 				25B6EC7619037BA700DA9186 /* Images.xcassets */,
 				25B6EC6019037BA600DA9186 /* Supporting Files */,

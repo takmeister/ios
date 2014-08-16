@@ -26,7 +26,6 @@
     self.physicsBody.allowsRotation =  FALSE;
     self.primaryfirerate = 10;
     self.physicsBody.categoryBitMask = playerCategory;
-    self.physicsBody.contactTestBitMask = enemyCategory;
     self.physicsBody.dynamic = false;
     return self;
 }

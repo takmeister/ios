@@ -11,8 +11,8 @@
 
 @implementation Bullet
 
--(Bullet*)init:(float)radius andPosition:(CGPoint)pos withSpeed:(CGVector)speed isEnemy:(bool)isEnemy andDecay:(float)decayinit{
-    self = [super initWithColor:[UIColor greenColor] size:CGSizeMake(radius, radius)];
+-(Bullet*)init:(CGSize)size andPosition:(CGPoint)pos withSpeed:(CGVector)speed isEnemy:(bool)isEnemy andDecay:(float)decayinit{
+    self = [super initWithColor:[UIColor greenColor] size:size];
     self.position = pos;
     self.zPosition = 2;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
@@ -21,7 +21,7 @@
     self.decay = decayinit;
     self.physicsBody.allowsRotation = false;
     self.isEnemy = isEnemy;
-    self.power = radius * sqrtf(pow(speed.dx, 2) + pow(speed.dy, 2)) / 100;
+    self.power = size.width * sqrtf(pow(speed.dx, 2) + pow(speed.dy, 2)) / 100;
     self.physicsBody.categoryBitMask = 0;
     self.physicsBody.contactTestBitMask = playerCategory | enemyCategory;
     self.physicsBody.collisionBitMask = 0;

@@ -17,6 +17,7 @@ Movearea *leftarea;
 Movearea *rightarea;
 CGPoint offset;
 SKAction *bulletspawn;
+SKNode *enemyNodes;
 
 //new
 
@@ -39,6 +40,8 @@ SKAction *bulletspawn;
         self.physicsWorld.gravity = CGVectorMake(0, -5);
         self.physicsWorld.contactDelegate = self;
         score = 0;
+        enemyNodes = [SKNode node];
+        [self addChild:enemyNodes];
         
         NSArray * imageNames = @[@"ponyX.jpeg", @"starsX.jpeg", @"kaga.png"];
         PBParallaxBackground * parallax = [[PBParallaxBackground alloc] initWithBackgrounds:imageNames size:size direction:kPBParallaxBackgroundDirectionLeft fastestSpeed:4
@@ -72,7 +75,7 @@ SKAction *bulletspawn;
 
 -(void)shootbullets:(Player*)thechosen{
     bulletspawn = [SKAction runBlock:^{
-        Bullet *newbullet = [[Bullet alloc]init:10 andPosition:CGPointMake(maine.position.x, maine.position.y) withSpeed:CGVectorMake(1500, 0) isEnemy:false andDecay:5];
+        Bullet *newbullet = [[Bullet alloc]init:CGSizeMake(10, 10) andPosition:CGPointMake(maine.position.x, maine.position.y) withSpeed:CGVectorMake(1500, 0) isEnemy:false andDecay:5];
         [self addChild:newbullet];
         
         SKAction *remove = [SKAction removeFromParent];
@@ -159,29 +162,33 @@ SKAction *bulletspawn;
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
-    //new
     [self.parallaxBackground update:currentTime];
-    //new
     
     scoreLabel.text = [NSString stringWithFormat:@"Score: %d Health: %d",score,maine.health];
+    
+    enemyNodes.speed = 1.0 + (score)/50000;
+    
+    //Enemy Generation Code from random integer 'picker'
     
     if (cooling == false) {
         int picker = arc4random_uniform(100);
         
-        if (picker >= 60) {
-            Enemy *enemyObject = [[Enemy alloc]init:2];
-            [self addChild:enemyObject];
+        Enemy *enemyObject;
+        
+        if (picker >= 80) {
+            enemyObject = [[Enemy alloc]init:3];
+        }
+        else if (picker >= 60) {
+            enemyObject = [[Enemy alloc]init:2];
         }
         else if (picker >= 40) {
-            Enemy *enemyObject = [[Enemy alloc]init:1];
-            [self addChild:enemyObject];
+            enemyObject = [[Enemy alloc]init:1];
         }
         else {
-            Enemy *enemyObject = [[Enemy alloc]init:0];
-            [self addChild:enemyObject];
+            enemyObject = [[Enemy alloc]init:0];
         }
+        [enemyNodes addChild:enemyObject];
     }
-    
     
     if (isAlive == true){
     [leftarea drag];

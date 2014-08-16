@@ -21,7 +21,7 @@
         [self runAction:[SKAction sequence:@[[SKAction moveBy:CGVectorMake(-screensize.width * 2, 0) duration:10],[SKAction runBlock:^{[self removeFromParent];}]]]];
         
         SKAction *behaviour = [SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:10 andPosition:self.position withSpeed:CGVectorMake(-(250 + 20*(score/5000)), 0) isEnemy:true andDecay:5];
+            Bullet *enemybullet = [[Bullet alloc]init:CGSizeMake(10, 10) andPosition:self.position withSpeed:CGVectorMake(-(250 + 20*(score/5000)), 0) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
         }]]];
         
@@ -59,7 +59,7 @@
         float sine = -magnitude*sinf(angle);
         
         SKAction *shootOne = [SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:6 andPosition:self.position withSpeed:CGVectorMake(cosine, sine) isEnemy:true andDecay:5];
+            Bullet *enemybullet = [[Bullet alloc]init:CGSizeMake(6, 6) andPosition:self.position withSpeed:CGVectorMake(cosine, sine) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
         }];
         
@@ -75,7 +75,7 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
         [self runAction:[SKAction sequence:@[[SKAction moveBy:CGVectorMake(-screensize.width * 2, 0) duration:5],[SKAction runBlock:^{[self removeFromParent];}]]]];
         SKAction *shootBullet = [SKAction sequence:@[[SKAction waitForDuration:0.5],[SKAction runBlock:^{
-            Bullet *enemybullet = [[Bullet alloc]init:5 andPosition:self.position withSpeed:CGVectorMake(-550, 0) isEnemy:true andDecay:5];
+            Bullet *enemybullet = [[Bullet alloc]init:CGSizeMake(6, 6) andPosition:self.position withSpeed:CGVectorMake(-550, 0) isEnemy:true andDecay:5];
             [self.scene addChild:enemybullet];
         }]]];
         
@@ -84,12 +84,31 @@
         self.maxhealth = 1000;
         
     }
+    if (ID == 3) {
+        //Move and Stop guy
+        self = [super initWithColor:[UIColor grayColor] size:CGSizeMake(30, 70)];
+        self.position = CGPointMake(screensize.width, arc4random() % (int)screensize.height);
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
+        
+        SKAction *moveleft = [SKAction moveBy:CGVectorMake(-screensize.width/4, 0) duration:1];
+        SKAction *moveup = [SKAction moveToY:(screensize.height - self.size.height/2 - arc4random() % 200) duration:0.5];
+        SKAction *movedown = [SKAction moveToY:(self.size.height/2 + arc4random() % 200) duration:0.5];
+        SKAction *disappear = [SKAction runBlock:^{[self removeFromParent];}];
+        
+        [self runAction:[SKAction sequence:@[moveleft,moveup,moveleft,movedown,moveleft,moveup,moveleft,moveleft,disappear]]];
+        
+        self.maxhealth = 2000;
+    }
+    
+    //Enemy hitbox such that when player hits the enemy, imminent death
+    Bullet *hitmarker = [[Bullet alloc]init:self.size andPosition:CGPointMake(0, 0) withSpeed:CGVectorMake(0, 0) isEnemy:YES andDecay:30];
+    hitmarker.hidden = YES;
+    [self addChild:hitmarker];
     self.health = self.maxhealth;
     self.physicsBody.allowsRotation = FALSE;
     self.physicsBody.dynamic = FALSE;
     self.physicsBody.categoryBitMask = enemyCategory;
     self.physicsBody.collisionBitMask = 0;
-    self.physicsBody.contactTestBitMask = playerCategory;
     
     cooling = true;
     
