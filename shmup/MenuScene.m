@@ -79,7 +79,7 @@
          [[MyScene alloc]initWithSize:self.size]; //call game
         
               SKTransition *doors =
-              [SKTransition doorwayWithDuration:1.0];
+              [SKTransition fadeWithColor:[UIColor blackColor] duration:1.0];
         
              [self.view presentScene:NextScene transition:doors];
 

@@ -39,6 +39,9 @@
 		25B6EC9819037E0500DA9186 /* Movearea.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC9719037E0500DA9186 /* Movearea.m */; };
 		25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6EC9D1904E58400DA9186 /* Bullet.m */; };
 		25B6ECA019071E3900DA9186 /* robot0.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B6EC9F19071E3900DA9186 /* robot0.png */; };
+		25C23C5A199FA41600BF4C6F /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C23C59199FA41600BF4C6F /* Button.m */; };
+		25C23C5C19A052B400BF4C6F /* playerMarker.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25C23C5B19A052B400BF4C6F /* playerMarker.sks */; };
+		25C23C5E19A0592400BF4C6F /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25C23C5D19A0592400BF4C6F /* spark.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,10 @@
 		25B6EC9C1904E58400DA9186 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		25B6EC9D1904E58400DA9186 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		25B6EC9F19071E3900DA9186 /* robot0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot0.png; sourceTree = SOURCE_ROOT; };
+		25C23C58199FA41600BF4C6F /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		25C23C59199FA41600BF4C6F /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
+		25C23C5B19A052B400BF4C6F /* playerMarker.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerMarker.sks; sourceTree = "<group>"; };
+		25C23C5D19A0592400BF4C6F /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +134,8 @@
 		253A085D199EDF5500789FEF /* Images and Words */ = {
 			isa = PBXGroup;
 			children = (
+				25C23C5D19A0592400BF4C6F /* spark.sks */,
+				25C23C5B19A052B400BF4C6F /* playerMarker.sks */,
 				253A0858199EBF7600789FEF /* ponyX.jpeg */,
 				253A0859199EBF7600789FEF /* starsX.jpeg */,
 				253A0848199BD57000789FEF /* button.png */,
@@ -152,6 +161,8 @@
 				2584211A19970D5C00EDAA04 /* Enemy.m */,
 				25B6EC9C1904E58400DA9186 /* Bullet.h */,
 				25B6EC9D1904E58400DA9186 /* Bullet.m */,
+				25C23C58199FA41600BF4C6F /* Button.h */,
+				25C23C59199FA41600BF4C6F /* Button.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -322,8 +333,10 @@
 				25102673191576F900B2946F /* spark.png in Resources */,
 				253A0853199BD57000789FEF /* buttonlol.png in Resources */,
 				25B6EC7719037BA700DA9186 /* Images.xcassets in Resources */,
+				25C23C5E19A0592400BF4C6F /* spark.sks in Resources */,
 				253A085B199EBF7600789FEF /* ponyX.jpeg in Resources */,
 				253A085C199EBF7600789FEF /* starsX.jpeg in Resources */,
+				25C23C5C19A052B400BF4C6F /* playerMarker.sks in Resources */,
 				251026811915866600B2946F /* bernier.sks in Resources */,
 				25B6EC6D19037BA700DA9186 /* Main.storyboard in Resources */,
 				25B6ECA019071E3900DA9186 /* robot0.png in Resources */,
@@ -348,6 +361,7 @@
 				2584211B19970D5C00EDAA04 /* Enemy.m in Sources */,
 				253A0852199BD57000789FEF /* MenuScene.m in Sources */,
 				25B6EC9E1904E58400DA9186 /* Bullet.m in Sources */,
+				25C23C5A199FA41600BF4C6F /* Button.m in Sources */,
 				25B6EC7319037BA700DA9186 /* MyScene.m in Sources */,
 				25B6EC7019037BA700DA9186 /* ViewController.m in Sources */,
 				253A0851199BD57000789FEF /* ExtraScene1.m in Sources */,

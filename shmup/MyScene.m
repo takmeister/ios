@@ -12,12 +12,17 @@
 #import "Bullet.h"
 #import "Enemy.h"
 #import "PBParallaxBackground.h" //new
+#import "Button.h"
+#import "MenuScene.h"
 
 Movearea *leftarea;
 Movearea *rightarea;
 CGPoint offset;
 SKAction *bulletspawn;
 SKNode *enemyNodes;
+bool deathMenu;
+NSString *bodyFont = @"HelveticaNeue-Light";
+SKLabelNode *dismiss;
 
 //new
 
@@ -39,6 +44,7 @@ SKNode *enemyNodes;
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsWorld.gravity = CGVectorMake(0, -5);
         self.physicsWorld.contactDelegate = self;
+        deathMenu = false;
         score = 0;
         enemyNodes = [SKNode node];
         [self addChild:enemyNodes];
@@ -50,14 +56,14 @@ SKNode *enemyNodes;
         [self addChild:parallax];
         
         //Player
-        maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(5, 5) withSpeed:2.0 withTexture:0 withType:0];
+        maine = [[Player alloc]init:CGPointMake(100, 100) withSize:CGSizeMake(40, 70) withHitmarkersize:CGSizeMake(15, 15) withSpeed:2.0 withTexture:0 withType:0];
         [self addChild:maine];
         
         isAlive = true; //Player is alive
         cooling = false; //Enemy Spawn Cooldown inactive
         
         //Objects
-        scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-UltraLight"];
+        scoreLabel = [SKLabelNode labelNodeWithFontNamed:bodyFont];
         scoreLabel.position = CGPointMake(screensize.width / 2, screensize.height - 30);
         scoreLabel.zPosition = 6;
         [self addChild:scoreLabel];
@@ -102,6 +108,17 @@ SKNode *enemyNodes;
         }
         else if (picked.identity == 1){
             [self shootbullets:maine];
+        }
+        else if (picked.identity == 2){
+            dismiss.alpha = 0.2;
+            
+            SKScene *NextScene =
+            [[MenuScene alloc]initWithSize:self.size]; //call menu
+            
+            SKTransition *doors =
+            [SKTransition fadeWithColor:[UIColor blackColor] duration:1.0];
+            
+            [self.view presentScene:NextScene transition:doors];
         }
     }
     
@@ -164,7 +181,7 @@ SKNode *enemyNodes;
     
     [self.parallaxBackground update:currentTime];
     
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %d Health: %d",score,maine.health];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %d Health: %d",(int)score,maine.health];
     
     enemyNodes.speed = 1.0 + (score)/50000;
     
@@ -175,7 +192,10 @@ SKNode *enemyNodes;
         
         Enemy *enemyObject;
         
-        if (picker >= 80) {
+        if (picker >= 95) {
+            enemyObject = [[Enemy alloc]init:4];
+        }
+        else if (picker >= 80) {
             enemyObject = [[Enemy alloc]init:3];
         }
         else if (picker >= 60) {
@@ -193,6 +213,40 @@ SKNode *enemyNodes;
     if (isAlive == true){
     [leftarea drag];
     [rightarea drag];
+    }
+    else if ((isAlive == false) && (deathMenu == false)){ //Death Transitions and Menu
+        SKShapeNode *exitCanvas = [[SKShapeNode alloc]init];
+        
+        exitCanvas.path = CGPathCreateWithRoundedRect(CGRectMake(0, 0, screensize.width/2, screensize.height/2), 4, 4, NULL);
+        exitCanvas.fillColor = [UIColor whiteColor];
+        exitCanvas.lineWidth = 0;
+        exitCanvas.position = CGPointMake(screensize.width/4, screensize.height * 1.5);
+        exitCanvas.zPosition = 110;
+        
+        [self addChild:exitCanvas];
+        
+        dismiss = [SKLabelNode labelNodeWithFontNamed:bodyFont];
+        dismiss.text = @"Return to Menu";
+        dismiss.fontColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+        [exitCanvas addChild:dismiss];
+        dismiss.position = CGPointMake(screensize.width/4, screensize.height/4);
+        
+        Movearea *exitButton = [[Movearea alloc]initWithColor:[UIColor redColor] andSize:CGSizeMake(screensize.width/2, screensize.height/2) andID:2 andPosition:CGPointMake(0, 0)];
+        [exitCanvas addChild:exitButton];
+        exitButton.position = CGPointMake(screensize.width/4, screensize.height/4);
+        
+        exitCanvas.alpha = 0.7;
+        deathMenu = true;
+        
+        SKSpriteNode *darkShadow = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:screensize];
+        darkShadow.alpha = 0;
+        darkShadow.zPosition = 19;
+        darkShadow.position = CGPointMake(screensize.width/2, screensize.height/2);
+        [self addChild:darkShadow];
+        
+        [exitCanvas runAction:[SKAction moveTo:CGPointMake(screensize.width/4, screensize.height/4) duration:1]];
+        [darkShadow runAction:[SKAction fadeAlphaTo:0.7 duration:1]];
+        [scoreLabel runAction:[SKAction moveToY:screensize.height + scoreLabel.fontSize duration:1]];
     }
     
     if ((maine.position.x + leftarea.displacement.x * maine.thespeed <= screensize.width)&&(maine.position.x + leftarea.displacement.x * maine.thespeed >= 0)&&(maine.position.y + leftarea.displacement.y * maine.thespeed <= screensize.height)&&(maine.position.y + leftarea.displacement.y * maine.thespeed >= 0)){

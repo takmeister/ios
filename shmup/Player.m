@@ -27,6 +27,14 @@
     self.primaryfirerate = 10;
     self.physicsBody.categoryBitMask = playerCategory;
     self.physicsBody.dynamic = false;
+    
+    //Hitmarker particle effect
+    NSString *burstPath =
+    [[NSBundle mainBundle] pathForResource:@"playerMarker" ofType:@"sks"];
+    
+    SKEmitterNode *playerMarker = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
+    [self addChild:playerMarker];
+    
     return self;
 }
 
@@ -65,8 +73,8 @@
         self.physicsBody.allowsRotation = true;
         self.physicsBody.velocity = CGVectorMake(-20, 20);
         [self removeAllChildren];
-        
         [self runAction:[SKAction sequence:@[deathAnimation,[SKAction runBlock:^{[self removeFromParent];}]]]];
+        
     }
 }
 

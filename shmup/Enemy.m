@@ -95,10 +95,25 @@
         SKAction *movedown = [SKAction moveToY:(self.size.height/2 + arc4random() % 200) duration:0.5];
         SKAction *disappear = [SKAction runBlock:^{[self removeFromParent];}];
         
-        [self runAction:[SKAction sequence:@[moveleft,moveup,moveleft,movedown,moveleft,moveup,moveleft,moveleft,disappear]]];
+        [self runAction:[SKAction sequence:@[moveleft,moveup,moveleft,movedown,moveleft,moveup,moveleft,moveleft,disappear]] withKey:@"actions"];
         
         self.maxhealth = 2000;
     }
+    if (ID == 4) {
+        //Stop in middle then rape
+        self = [super initWithColor:[UIColor yellowColor] size:CGSizeMake(30, 30)];
+        self.position = CGPointMake(screensize.width, arc4random() % (int)screensize.height);
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 50)];
+        
+        SKAction *movecenter = [SKAction moveTo:CGPointMake(screensize.width / 2, screensize.height / 2) duration:1];
+        SKAction *shrink = [SKAction scaleTo:0 duration:1];
+        SKAction *disappear = [SKAction runBlock:^{[self removeFromParent];}];
+        
+        [self runAction:[SKAction sequence:@[movecenter,shrink,disappear]] withKey:@"actions"];
+        
+        self.maxhealth = 2000;
+    }
+    
     
     //Enemy hitbox such that when player hits the enemy, imminent death
     Bullet *hitmarker = [[Bullet alloc]init:self.size andPosition:CGPointMake(0, 0) withSpeed:CGVectorMake(0, 0) isEnemy:YES andDecay:30];
@@ -138,6 +153,13 @@
     [self.scene addChild:damage];
     damage.zPosition = 5;
     [damage runAction:[SKAction sequence:@[[SKAction waitForDuration:5],[SKAction runBlock:^{[damage removeFromParent];}]]]];
+    
+    NSString *sparks =
+    [[NSBundle mainBundle] pathForResource:@"spark" ofType:@"sks"];
+    
+    SKEmitterNode *sparkDamage = [NSKeyedUnarchiver unarchiveObjectWithFile:sparks];
+    [self addChild:sparkDamage];
+    [sparkDamage runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1],[SKAction runBlock:^{[sparkDamage removeFromParent];}]]]];
     
     //Damage animation
     SKAction *jitter1 = [SKAction moveBy:CGVectorMake(5, 5) duration:0.03];

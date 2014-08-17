@@ -16,14 +16,14 @@ static const uint32_t enemyCategory = 0x1 << 2;
 bool isAlive;
 bool cooling;
 
-int score;
+double score;
 
 CGSize screensize;
 Player *maine;
 SKLabelNode *scoreLabel;
 
+
+
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
-
-
 
 @end
